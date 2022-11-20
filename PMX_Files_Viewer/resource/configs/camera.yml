@@ -1,0 +1,10 @@
+%YAML:1.0
+---
+Yaw: -90.
+Pitch: 0.
+MovementSpeed: 500.
+MouseSensitivity: 0.1
+Zoom: 60.
+Position: [ 0., 0., 0. ]
+WorldUp: [ 0., 1., 0. ]
+Front: [ 0., 0., -1. ]
