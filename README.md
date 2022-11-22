@@ -27,6 +27,8 @@
    - `]`向下；
    - `鼠标`按住并拖动可以移动视角。
 
+2. 通过修改`PMX_Files_Viewer\resource\configs\model.config`文件可以更换需要渲染的模型。
+
 3. 如果出现`由于无法找到 assimp-vc143-mt.dll...`的提示，需要将`Dependencies\dll`下面的`assimp-vc143-mt.dll`复制到项目中的`Debug`或`Release`中（即和`PMX_Files_Viewer.exe`放在同一目录下）。
 
 4. 如果`.pmx`模型或贴图路径中存在中文可能会报错，我感觉这是assimp库中的一个遗留问题 [assimp/issues/1612#](https://github.com/assimp/assimp/issues/1612#)。我自己的解决方案是修改系统的编码方式：
