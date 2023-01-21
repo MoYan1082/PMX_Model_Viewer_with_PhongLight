@@ -1,33 +1,37 @@
-#ifndef COMMON_H
-#define COMMON_H
-
+#pragma once
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include <glm/gtx/string_cast.hpp>
 
 #include <assimp/scene.h>
 #include <assimp/Importer.hpp>
 #include <assimp/postprocess.h>
 
-#include <opencv2/core.hpp>
-#include <opencv2/videoio.hpp>
-
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <random>
 #include <queue>
 #include <set>
 #include <map>
-#include <memory>
 #include <assert.h>
 #include <windows.h>
 
-#define SCREEN_WIDTH	1280
-#define SCREEN_HEIGHT	720
-#define INF             100000000
+#include "stb_image.h"
+
+const unsigned int SCR_WIDTH = 800;
+const unsigned int SCR_HEIGHT = 600;
+
+// shadow map config
+const unsigned int SHADOW_WIDTH = 1024;
+const unsigned int SHADOW_HEIGHT = 1024;
+const float near_plane = 1.0f;
+const float far_plane = 50.0f;
+
 
 #define ASSERT(x) if (!(x)) __debugbreak();
 #define GLCall(x) GLClearError();\
@@ -35,7 +39,15 @@
     ASSERT(GLLogCall(#x, __FILE__, __LINE__))
 
 
-void GLClearError();
-bool GLLogCall(const char* function, const char* file, int line);
+void GLClearError() {
+    while (glGetError() != GL_NO_ERROR);
+}
 
-#endif // COMMON_H
+bool GLLogCall(const char* function, const char* file, int line) {
+    while (GLenum error = glGetError()) {
+        std::cout << "[OpenGL Error] (" << error << ")" << function << " "
+            << file << ":" << line << std::endl;
+        return false;
+    }
+    return true;
+}

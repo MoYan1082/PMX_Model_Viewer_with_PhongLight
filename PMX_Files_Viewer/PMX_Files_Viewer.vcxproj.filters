@@ -21,22 +21,7 @@
     <ClCompile Include="external\glad.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\common.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="src\camera.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="src\config.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="src\mesh.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="src\model.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="src\shader.cpp">
+    <ClCompile Include="external\stb_image.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,23 +35,34 @@
     <ClInclude Include="include\camera.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="include\model.h">
+    <ClInclude Include="include\environment\model.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="include\mesh.h">
+    <ClInclude Include="include\environment\mesh.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="external\stb_image.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="include\config.h">
+    <ClInclude Include="include\utility.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\environment\objects.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="resource\configs\camera.yml" />
-    <None Include="resource\shaders\model.vs.shader" />
-    <None Include="resource\shaders\model.fs.shader" />
-    <None Include="resource\configs\model.yml" />
+    <None Include="resources\shaders\main_fs.shader" />
+    <None Include="resources\shaders\main_vs.shader" />
+    <None Include="resources\shaders\shadowmap_fs.shader" />
+    <None Include="resources\shaders\shadowmap_vs.shader" />
+    <None Include="resources\shaders\shadowmap_gs.shader" />
+    <None Include="resources\shaders\gbuffer_fs.shader" />
+    <None Include="resources\shaders\gbuffer_vs.shader" />
+    <None Include="resources\shaders\ssao_fs.shader" />
+    <None Include="resources\shaders\ssao_vs.shader" />
+    <None Include="resources\shaders\ssao_blur_fs.shader" />
+    <None Include="resources\shaders\skybox_fs.shader" />
+    <None Include="resources\shaders\skybox_vs.shader" />
   </ItemGroup>
 </Project>

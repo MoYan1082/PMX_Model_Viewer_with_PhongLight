@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -184,28 +184,32 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="external\glad.c" />
+    <ClCompile Include="external\stb_image.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="src\camera.cpp" />
-    <ClCompile Include="src\common.cpp" />
-    <ClCompile Include="src\config.cpp" />
-    <ClCompile Include="src\mesh.cpp" />
-    <ClCompile Include="src\model.cpp" />
-    <ClCompile Include="src\shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="external\stb_image.h" />
     <ClInclude Include="include\camera.h" />
     <ClInclude Include="include\common.h" />
-    <ClInclude Include="include\config.h" />
-    <ClInclude Include="include\mesh.h" />
-    <ClInclude Include="include\model.h" />
+    <ClInclude Include="include\environment\mesh.h" />
+    <ClInclude Include="include\environment\model.h" />
+    <ClInclude Include="include\environment\objects.h" />
     <ClInclude Include="include\shader.h" />
+    <ClInclude Include="include\utility.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="resource\configs\camera.yml" />
-    <None Include="resource\configs\model.yml" />
-    <None Include="resource\shaders\model.fs.shader" />
-    <None Include="resource\shaders\model.vs.shader" />
+    <None Include="resources\shaders\gbuffer_fs.shader" />
+    <None Include="resources\shaders\gbuffer_vs.shader" />
+    <None Include="resources\shaders\main_fs.shader" />
+    <None Include="resources\shaders\main_vs.shader" />
+    <None Include="resources\shaders\shadowmap_fs.shader" />
+    <None Include="resources\shaders\shadowmap_gs.shader" />
+    <None Include="resources\shaders\shadowmap_vs.shader" />
+    <None Include="resources\shaders\skybox_fs.shader" />
+    <None Include="resources\shaders\skybox_vs.shader" />
+    <None Include="resources\shaders\ssao_fs.shader" />
+    <None Include="resources\shaders\ssao_vs.shader" />
+    <None Include="resources\shaders\ssao_blur_fs.shader" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

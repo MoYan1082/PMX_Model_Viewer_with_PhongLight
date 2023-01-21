@@ -1,0 +1,11 @@
+﻿  main.cpp
+D:\Windows Kits\10\Include\10.0.19041.0\shared\minwindef.h(130,1): warning C4005: “APIENTRY”: 宏重定义
+E:\OpenGL projects\整合\Dependencies\include\glad\glad.h(32): message : 参见“APIENTRY”的前一个定义
+E:\OpenGL projects\整合\PMX_Files_Viewer\include\environment\mesh.h(11,1): warning C4267: “=”: 从“size_t”转换到“unsigned int”，可能丢失数据
+E:\OpenGL projects\整合\PMX_Files_Viewer\include\environment\model.h(23,31): warning C4018: “<”: 有符号/无符号不匹配
+E:\OpenGL projects\整合\PMX_Files_Viewer\include\environment\model.h(27,31): warning C4018: “<”: 有符号/无符号不匹配
+E:\OpenGL projects\整合\PMX_Files_Viewer\include\environment\model.h(46,27): warning C4018: “<”: 有符号/无符号不匹配
+E:\OpenGL projects\整合\PMX_Files_Viewer\include\environment\model.h(58,27): warning C4018: “<”: 有符号/无符号不匹配
+E:\OpenGL projects\整合\PMX_Files_Viewer\include\environment\model.h(60,31): warning C4018: “<”: 有符号/无符号不匹配
+LINK : warning LNK4098: 默认库“MSVCRT”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
+  PMX_Files_Viewer.vcxproj -> E:\OpenGL projects\整合\x64\Debug\PMX_Files_Viewer.exe
