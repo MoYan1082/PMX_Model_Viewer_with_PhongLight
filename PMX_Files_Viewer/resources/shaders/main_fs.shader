@@ -48,29 +48,30 @@ void main()
     vec3 FragPos = texture(gPosition, TexCoords).xyz;
     vec3 Normal = texture(gNormal, TexCoords).xyz;
     vec3 Albedo = texture(gAlbedo, TexCoords).rgb;
+    float Alpha = texture(gPosition, TexCoords).w;
     // set depth
     vec4 tmpPos = projection * view * vec4(FragPos, 1.0);
     tmpPos.xyz /= tmpPos.w;
-    //tmpPos.z = tmpPos.z / 2 + 0.5;
     gl_FragDepth = tmpPos.z;
-    FragColor = vec4(1.0) * tmpPos.z;
-    //// ssao
-    //float AmbientOcclusion = texture(ssao, TexCoords).r;
-    //// ambient
-    //vec3 ambient = 0.2 * Albedo * AmbientOcclusion;
-    //// diffuse
-    //vec3 lightDir = normalize(lightPos - FragPos);
-    //vec3 normal = normalize(Normal);
-    //float diff = max(dot(lightDir, normal), 0.0);
-    //vec3 diffuse = diff * Albedo * lightColor * AmbientOcclusion;
-    //// specular
-    //vec3 viewDir = normalize(viewPos - FragPos);
-    //vec3 halfwayDir = normalize(lightDir + viewDir);
-    //float spec = pow(max(dot(normal, halfwayDir), 0.0), 32.0);
-    //vec3 specular = vec3(0.3) * spec * lightColor;
-    //// shadow map
-    //float bias = max(0.05 * (1.0 - dot(Normal, lightDir)), 0.005);
-    //float shadow = ShadowCalculation(FragPos, bias);
-    //// sum
-    //FragColor = vec4(ambient + (1.0 - shadow) * (diffuse + specular), 1.0);
+    // accuracy error
+    if (Alpha >= 0.999999) gl_FragDepth = 1;
+    // ssao
+    float AmbientOcclusion = texture(ssao, TexCoords).r;
+    // ambient
+    vec3 ambient = 0.2 * Albedo * AmbientOcclusion;
+    // diffuse
+    vec3 lightDir = normalize(lightPos - FragPos);
+    vec3 normal = normalize(Normal);
+    float diff = max(dot(lightDir, normal), 0.0);
+    vec3 diffuse = diff * Albedo * lightColor * AmbientOcclusion;
+    // specular
+    vec3 viewDir = normalize(viewPos - FragPos);
+    vec3 halfwayDir = normalize(lightDir + viewDir);
+    float spec = pow(max(dot(normal, halfwayDir), 0.0), 32.0);
+    vec3 specular = vec3(0.3) * spec * lightColor;
+    // shadow map
+    float bias = max(0.05 * (1.0 - dot(Normal, lightDir)), 0.005);
+    float shadow = ShadowCalculation(FragPos, bias);
+    // sum
+    FragColor = vec4(ambient + (1.0 - shadow) * (diffuse + specular), 1.0);
 }
